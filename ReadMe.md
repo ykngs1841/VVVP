@@ -1,4 +1,4 @@
-Virtual Vehicle Verification Platform
+# Virtual Vehicle Verification Platform
 
 ## Project Overview
 
@@ -25,19 +25,25 @@ Virtual Vehicle Verification Platform(VVVP)은 사용자가 입력한 차량 상
 ## How it Works
 
 1. 사용자가 차량 상태를 입력합니다.
-2. ECU가 입력 조건을 검증합니다.
-3. 차량 상태를 변경합니다.
-4. 검증 결과를 생성합니다.
-5. 시뮬레이션 결과를 기록합니다.
+1. ECU가 입력 조건을 검증합니다.
+1. 차량 상태를 변경합니다.
+1. 검증 결과를 생성합니다.
+1. 시뮬레이션 결과를 기록합니다.
 
 ## How to Run
 
 git clone https://github.com/ykngs1841/VVVP.git
+
 cd VVVP
+
 mkdir build
+
 cd build
+
 cmake ..
+
 cmake --build .
+
 ./VVVP
 
-> Detailed interface specifications are available in `docs/IO_List.md`.
+\> Detailed interface specifications are available in `docs/IO\_List.md`.
