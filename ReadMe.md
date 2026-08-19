@@ -32,18 +32,13 @@ Virtual Vehicle Verification Platform(VVVP)은 사용자가 입력한 차량 상
 
 ## How to Run
 
+```bash
 git clone https://github.com/ykngs1841/VVVP.git
-
 cd VVVP
-
 mkdir build
-
 cd build
-
 cmake ..
-
 cmake --build .
-
 ./VVVP
 
 \> Detailed interface specifications are available in `docs/IO\_List.md`.
