@@ -42,7 +42,7 @@
 
 ---
 
-## Output
+## VehicleState
 
 ### Engine State
 
@@ -66,9 +66,13 @@
 - Type : Boolean
 - Domain : ON / OFF
 
+---
+
+## Output
+
 ### Verification Result
 
-검증 결과
+시뮬레이션 검증 결과
 
 - Type : Enum
 - Domain : PASS / FAIL
@@ -92,33 +96,33 @@
 
 ### Engine Start
 
-엔진 버튼이 입력되면 아래 조건을 모두 만족해야 시동이 가능하다.
+Engine Button이 입력되면 아래 조건을 모두 만족해야 시동이 가능하다.
 
 - Brake Position > 0
 - Gear Position = P 또는 N
 - Battery Voltage ≥ 11.5 V
 - Engine State = OFF
 
-조건을 모두 만족하면 다음 상태로 변경된다.
+조건을 모두 만족하면 VehicleState가 아래와 같이 변경된다.
 
 - Engine State = ON
 - Engine RPM = 850
 - Dashboard State = ON
 - Verification Result = PASS
 
-조건을 만족하지 못하면 차량 상태는 변경되지 않으며 Verification Result는 FAIL을 반환한다.
+조건을 만족하지 못하면 VehicleState는 변경되지 않으며 Verification Result는 FAIL을 반환한다.
 
 ### Engine Stop
 
-엔진 버튼이 입력되면 아래 조건을 만족해야 시동을 종료할 수 있다.
+Engine Button이 입력되면 아래 조건을 만족해야 시동을 종료할 수 있다.
 
 - Engine State = ON
 
-조건을 만족하면 다음 상태로 변경된다.
+조건을 만족하면 VehicleState가 아래와 같이 변경된다.
 
 - Engine State = OFF
 - Engine RPM = 0
 - Dashboard State = OFF
 - Verification Result = PASS
 
-조건을 만족하지 못하면 차량 상태는 변경되지 않으며 Verification Result는 FAIL을 반환한다.
+조건을 만족하지 못하면 VehicleState는 변경되지 않으며 Verification Result는 FAIL을 반환한다.
