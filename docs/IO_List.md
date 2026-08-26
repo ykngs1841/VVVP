@@ -30,7 +30,7 @@
 - Domain : 0.0 ~ 15.0
 - Unit : V
 
-### Engine Button
+/* ### Engine Button
 
 엔진 버튼 입력
 
@@ -39,7 +39,7 @@
 - Description
   - False : 버튼 미입력
   - True : 버튼 입력
-
+*/
 ---
 
 ## VehicleState
@@ -114,11 +114,12 @@ Engine Button이 입력되면 아래 조건을 모두 만족해야 시동이 가
 
 ### Engine Stop
 
-Engine Button이 입력되면 아래 조건을 만족해야 시동을 종료할 수 있다.
+Engine Button이 입력되면 아래 조건을 모두 만족해야 시동을 종료할 수 있다.
 
+- Brake Position > 0
 - Engine State = ON
 
-조건을 만족하면 VehicleState가 아래와 같이 변경된다.
+조건을 모두 만족하면 VehicleState가 아래와 같이 변경된다.
 
 - Engine State = OFF
 - Engine RPM = 0
