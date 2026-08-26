@@ -39,7 +39,7 @@
 - Description
   - False : 버튼 미입력
   - True : 버튼 입력
-*/
+*/  Data저장 -> 순간 Event로 변경
 ---
 
 ## VehicleState
