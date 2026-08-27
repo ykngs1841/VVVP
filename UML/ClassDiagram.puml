@@ -1,0 +1,30 @@
+UserInterface
+--------------------
++ inputVehicleState()
++ pressEngineButton()
+
+VehicleState
+--------------------
+- brakePosition
+- gearPosition
+- batteryVoltage
+- engineState
+- engineRPM
+- dashboardState
+
++ Getter / Setter
+
+ECU
+--------------------
++ processEngineButton()
+
+VerificationEngine
+--------------------
++ verify()
+
+Logger
+--------------------
+- logs
+
++ writeLog()
++ showLogs()
