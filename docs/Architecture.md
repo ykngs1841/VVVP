@@ -20,22 +20,26 @@
 
 판단 결과에 따라 VehicleState를 변경
 
+### DriverInput
+
+운전자의 입력 상태를 저장한다.
+
+관리하는 정보는 다음과 같다.
+
+- Brake Position
+- Gear Position
+- Engine Button
+
 ### VehicleState
 
 차량의 현재 상태를 저장한다.
 
 관리하는 정보는 다음과 같다.
 
-- Brake Position
-- Gear Position
 - Battery Voltage
 - Engine State
 - Engine RPM
 - Dashboard State
-
-### Verification Engine
-
-최종 차량 상태를 검증하고 PASS 또는 FAIL 결과를 생성한다.
 
 ### Logger
 
@@ -45,9 +49,9 @@
 
 프로그램은 아래 순서로 동작한다.
 
-1. 차량 상태 입력
-2. ECU 제어 로직 수행
-3. VehicleState 갱신
-4. 결과 검증
-5. 로그 기록
-6. 결과 출력
+1. 사용자가 차량 정보를 입력한다.
+2. UserInterface가 입력을 DriverInput에 저장한다.
+3. ECU가 DriverInput을 읽어 제어 조건을 판단한다.
+4. ECU가 VehicleState를 변경한다.
+5. Logger가 결과를 기록한다.
+6. UserInterface가 결과를 출력한다.

@@ -1,6 +1,6 @@
 # IO List
 
-## Input
+## DriverInput
 
 ### Brake Position
 
@@ -9,6 +9,7 @@
 - Type : Integer
 - Domain : 0 ~ 100
 - Unit : %
+
 - Description
   - 0 : 브레이크 미입력
   - 1 ~ 99 : 브레이크 강도
@@ -22,27 +23,17 @@
 - Domain : P, R, N, D
 - Unit : N/A
 
+---
+
+## VehicleState
+
 ### Battery Voltage
 
-배터리 전압
+차량 배터리 전압
 
 - Type : Float
 - Domain : 0.0 ~ 15.0
 - Unit : V
-
-/* ### Engine Button
-
-엔진 버튼 입력
-
-- Type : Boolean
-- Domain : True / False
-- Description
-  - False : 버튼 미입력
-  - True : 버튼 입력
-*/  Data저장 -> 순간 Event로 변경
----
-
-## VehicleState
 
 ### Engine State
 
@@ -68,20 +59,36 @@
 
 ---
 
+## Event
+
+### Engine Button
+
+엔진 버튼 입력 이벤트
+
+- Type : Event
+
+- Description
+  - Press : 엔진 버튼 입력
+
+※ Engine Button은 상태(State)를 저장하지 않으며, 버튼이 눌리는 순간 ECU를 호출하는 이벤트로 동작한다.
+
+---
+
 ## Output
 
-### Verification Result
+### Control Result
 
-시뮬레이션 검증 결과
+ECU 제어 결과
 
 - Type : Enum
 - Domain : PASS / FAIL
 
 ### Failure Reason
 
-검증 실패 원인
+제어 실패 원인
 
 - Type : String
+
 - Description
   - None
   - Brake Not Pressed
@@ -96,10 +103,15 @@
 
 ### Engine Start
 
-Engine Button이 입력되면 아래 조건을 모두 만족해야 시동이 가능하다.
+Engine Button 이벤트가 발생하면 ECU는 DriverInput과 VehicleState를 확인하여 아래 조건을 모두 만족해야 시동을 수행한다.
+
+#### DriverInput
 
 - Brake Position > 0
 - Gear Position = P 또는 N
+
+#### VehicleState
+
 - Battery Voltage ≥ 11.5 V
 - Engine State = OFF
 
@@ -108,15 +120,22 @@ Engine Button이 입력되면 아래 조건을 모두 만족해야 시동이 가
 - Engine State = ON
 - Engine RPM = 850
 - Dashboard State = ON
-- Verification Result = PASS
+- Control Result = PASS
 
-조건을 만족하지 못하면 VehicleState는 변경되지 않으며 Verification Result는 FAIL을 반환한다.
+조건을 만족하지 못하면 VehicleState는 변경되지 않으며 Control Result는 FAIL을 반환한다.
+
+---
 
 ### Engine Stop
 
-Engine Button이 입력되면 아래 조건을 모두 만족해야 시동을 종료할 수 있다.
+Engine Button 이벤트가 발생하면 ECU는 DriverInput과 VehicleState를 확인하여 아래 조건을 모두 만족해야 시동을 종료한다.
+
+#### DriverInput
 
 - Brake Position > 0
+
+#### VehicleState
+
 - Engine State = ON
 
 조건을 모두 만족하면 VehicleState가 아래와 같이 변경된다.
@@ -124,6 +143,6 @@ Engine Button이 입력되면 아래 조건을 모두 만족해야 시동을 종
 - Engine State = OFF
 - Engine RPM = 0
 - Dashboard State = OFF
-- Verification Result = PASS
+- Control Result = PASS
 
-조건을 만족하지 못하면 VehicleState는 변경되지 않으며 Verification Result는 FAIL을 반환한다.
+조건을 만족하지 못하면 VehicleState는 변경되지 않으며 Control Result는 FAIL을 반환한다.
