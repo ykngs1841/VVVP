@@ -74,7 +74,7 @@
 
 ---
 
-## Output
+## ECU Output
 
 ### Control Result
 
