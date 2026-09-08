@@ -1,0 +1,16 @@
+# 개인 요구사항 확인
+Requirement.txt
+
+# Visual Studio
+.vs/
+
+# Build
+out/
+build/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+
+# Visual Studio CMake
+CMakeSettings.json

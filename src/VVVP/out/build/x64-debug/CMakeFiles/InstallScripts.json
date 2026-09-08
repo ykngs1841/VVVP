@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/User/Desktop/VVVP/source/VVVP/out/build/x64-debug/cmake_install.cmake",
-		"C:/Users/User/Desktop/VVVP/source/VVVP/out/build/x64-debug/VVVP/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
