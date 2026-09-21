@@ -10,4 +10,5 @@ include_directories(include)
 
 add_executable(VVVP
     src/main.cpp
+    src/DriverInput.cpp
 )

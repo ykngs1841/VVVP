@@ -70,7 +70,7 @@
 - Description
   - Press : 엔진 버튼 입력
 
-※ Engine Button은 상태(State)를 저장하지 않으며, 버튼이 눌리는 순간 ECU를 호출하는 이벤트로 동작한다.
+※ Engine Button은 상태를 저장하지 않고,  버튼이 눌리는 순간 EngineController를 호출하는 이벤트로 동작한다.
 
 ---
 
@@ -103,7 +103,7 @@ ECU 제어 결과
 
 ### Engine Start
 
-Engine Button 이벤트가 발생하면 ECU는 DriverInput과 VehicleState를 확인하여 아래 조건을 모두 만족해야 시동을 수행한다.
+Engine Button를 실행시, 아래 조건을 모두 만족해야 시동이 가능하다.
 
 #### DriverInput
 
@@ -128,7 +128,7 @@ Engine Button 이벤트가 발생하면 ECU는 DriverInput과 VehicleState를 �
 
 ### Engine Stop
 
-Engine Button 이벤트가 발생하면 ECU는 DriverInput과 VehicleState를 확인하여 아래 조건을 모두 만족해야 시동을 종료한다.
+Engine Button 이벤트가 발생하면 EngineController는 DriverInput과 VehicleState를 확인하여 아래 조건을 모두 만족해야 시동을 종료한다.
 
 #### DriverInput
 
